@@ -1,0 +1,732 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Adrian Ruiz | Periodista Deportivo & Social Media</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: #ffffff;
+            background: #0a0a0a;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        /* Header Hero Section */
+        .header-hero {
+            position: relative;
+            padding: 80px 40px;
+            background: linear-gradient(135deg, #1a0f00 0%, #2d1500 50%, #1a0f00 100%);
+            border-radius: 20px;
+            margin-bottom: 50px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.8), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+            overflow: hidden;
+        }
+
+        .header-hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle at 20% 50%, rgba(255, 140, 0, 0.1) 0%, transparent 50%);
+            pointer-events: none;
+        }
+
+        .header-content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .avatar-circle {
+            width: 140px;
+            height: 140px;
+            margin: 0 auto 30px;
+            background: linear-gradient(135deg, #ff8c00 0%, #cc6b00 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 56px;
+            font-weight: 900;
+            color: #000;
+            box-shadow: 0 15px 40px rgba(255, 140, 0, 0.4), inset 0 -2px 5px rgba(0, 0, 0, 0.3);
+            border: 3px solid rgba(255, 255, 255, 0.15);
+        }
+
+        h1 {
+            font-size: 56px;
+            font-weight: 900;
+            margin-bottom: 12px;
+            color: #ffffff;
+            letter-spacing: -1px;
+            text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.8);
+        }
+
+        .main-title {
+            font-size: 24px;
+            color: #ff8c00;
+            font-weight: 700;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.8);
+        }
+
+        .tagline {
+            font-size: 17px;
+            color: #ccc;
+            line-height: 1.8;
+            margin-bottom: 0;
+            text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.8);
+        }
+
+        /* Section Base */
+        .section {
+            background: linear-gradient(135deg, #1a1a1a 0%, #252525 100%);
+            border-radius: 16px;
+            padding: 50px 40px;
+            margin-bottom: 40px;
+            box-shadow: 0 15px 50px rgba(0, 0, 0, 0.6), inset 0 1px 0 rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 140, 0, 0.15);
+            position: relative;
+        }
+
+        .section::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 4px;
+            height: 100%;
+            background: linear-gradient(180deg, #ff8c00 0%, #cc6b00 100%);
+            border-radius: 16px 0 0 16px;
+        }
+
+        .section-title {
+            font-size: 32px;
+            font-weight: 900;
+            margin-bottom: 30px;
+            color: #ffffff;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            position: relative;
+            padding-left: 20px;
+        }
+
+        .section-title::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 3px;
+            height: 30px;
+            background: linear-gradient(180deg, #ff8c00 0%, #cc6b00 100%);
+            border-radius: 2px;
+        }
+
+        /* About Section */
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            align-items: flex-start;
+        }
+
+        .about-text {
+            font-size: 16px;
+            line-height: 1.9;
+            color: #d0d0d0;
+        }
+
+        .about-text p {
+            margin-bottom: 20px;
+        }
+
+        .about-text strong {
+            color: #ff8c00;
+        }
+
+        .about-highlights {
+            display: grid;
+            gap: 12px;
+            margin-top: 0;
+        }
+
+        .highlight-item {
+            background: rgba(255, 140, 0, 0.1);
+            border-left: 3px solid #ff8c00;
+            padding: 15px 20px;
+            border-radius: 6px;
+            font-size: 15px;
+            color: #fff;
+            line-height: 1.5;
+        }
+
+        /* Skills Grid */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        .skill-card {
+            background: linear-gradient(135deg, rgba(255, 140, 0, 0.1), rgba(255, 140, 0, 0.05));
+            padding: 25px;
+            border-radius: 12px;
+            text-align: center;
+            border: 2px solid rgba(255, 140, 0, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        .skill-card:hover {
+            border-color: #ff8c00;
+            background: linear-gradient(135deg, rgba(255, 140, 0, 0.2), rgba(255, 140, 0, 0.1));
+            transform: translateY(-8px);
+            box-shadow: 0 12px 30px rgba(255, 140, 0, 0.3);
+        }
+
+        .skill-name {
+            font-size: 15px;
+            font-weight: 700;
+            color: #ffffff;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        /* Portfolio Section */
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin-top: 30px;
+        }
+
+        .portfolio-item {
+            position: relative;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
+            border: 2px solid rgba(255, 140, 0, 0.2);
+            transition: all 0.3s ease;
+            aspect-ratio: 1;
+        }
+
+        .portfolio-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .portfolio-item:hover {
+            border-color: #ff8c00;
+            box-shadow: 0 15px 40px rgba(255, 140, 0, 0.4);
+            transform: translateY(-8px);
+        }
+
+        .portfolio-caption {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(180deg, transparent 0%, rgba(0, 0, 0, 0.9) 100%);
+            padding: 20px;
+            color: #ffffff;
+            font-size: 14px;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .portfolio-item:hover .portfolio-caption {
+            opacity: 1;
+        }
+
+        /* Metrics Section */
+        .metrics-info {
+            background: rgba(255, 140, 0, 0.1);
+            border: 2px solid rgba(255, 140, 0, 0.3);
+            border-radius: 12px;
+            padding: 25px;
+            margin-bottom: 30px;
+            color: #d0d0d0;
+            font-size: 16px;
+            line-height: 1.8;
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        .project-card {
+            background: linear-gradient(135deg, rgba(255, 140, 0, 0.15), rgba(255, 140, 0, 0.05));
+            border: 2px solid rgba(255, 140, 0, 0.3);
+            border-radius: 12px;
+            padding: 30px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .project-card:hover {
+            background: linear-gradient(135deg, rgba(255, 140, 0, 0.25), rgba(255, 140, 0, 0.1));
+            border-color: #ff8c00;
+            transform: translateY(-8px);
+            box-shadow: 0 12px 30px rgba(255, 140, 0, 0.3);
+        }
+
+        .project-name {
+            font-size: 18px;
+            font-weight: 700;
+            color: #ff8c00;
+            margin-bottom: 8px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .project-desc {
+            font-size: 14px;
+            color: #b0b0b0;
+            line-height: 1.6;
+        }
+
+        /* Tools Section */
+        .tools-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+            gap: 15px;
+            margin-top: 30px;
+        }
+
+        .tool-badge {
+            background: rgba(255, 140, 0, 0.15);
+            border: 2px solid rgba(255, 140, 0, 0.4);
+            padding: 15px 20px;
+            border-radius: 10px;
+            text-align: center;
+            font-size: 13px;
+            font-weight: 700;
+            color: #ffffff;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            transition: all 0.3s ease;
+            cursor: default;
+        }
+
+        .tool-badge:hover {
+            background: rgba(255, 140, 0, 0.25);
+            border-color: #ff8c00;
+            box-shadow: 0 6px 20px rgba(255, 140, 0, 0.3);
+            transform: translateY(-4px);
+        }
+
+        /* Cycling Vocacion Section */
+        .cycling-section {
+            background: linear-gradient(135deg, rgba(255, 140, 0, 0.15), rgba(255, 140, 0, 0.05));
+            border: 2px solid rgba(255, 140, 0, 0.4);
+            border-radius: 12px;
+            padding: 30px;
+            margin-top: 30px;
+        }
+
+        .cycling-section h4 {
+            color: #ff8c00;
+            font-size: 16px;
+            font-weight: 700;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .cycling-text {
+            color: #d0d0d0;
+            font-size: 15px;
+            line-height: 1.8;
+        }
+
+        /* Experience Section */
+        .experience-list {
+            display: grid;
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        .experience-item {
+            background: rgba(255, 140, 0, 0.08);
+            border-left: 4px solid #ff8c00;
+            padding: 20px;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+
+        .experience-item:hover {
+            background: rgba(255, 140, 0, 0.15);
+            transform: translateX(8px);
+        }
+
+        .experience-title {
+            font-size: 16px;
+            font-weight: 700;
+            color: #ff8c00;
+            margin-bottom: 6px;
+        }
+
+        .experience-detail {
+            font-size: 14px;
+            color: #b0b0b0;
+        }
+
+        /* Contact Section */
+        .contact-section {
+            text-align: center;
+            padding: 50px 40px;
+            background: linear-gradient(135deg, rgba(255, 140, 0, 0.15), rgba(255, 140, 0, 0.05));
+            border-radius: 16px;
+            border: 2px solid rgba(255, 140, 0, 0.3);
+            box-shadow: 0 15px 50px rgba(0, 0, 0, 0.6);
+        }
+
+        .contact-title {
+            font-size: 28px;
+            font-weight: 900;
+            margin-bottom: 30px;
+            color: #ffffff;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .social-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            justify-content: center;
+            margin-bottom: 30px;
+        }
+
+        .social-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 13px 26px;
+            background: transparent;
+            color: #ff8c00;
+            text-decoration: none;
+            border: 2px solid #ff8c00;
+            border-radius: 8px;
+            font-weight: 700;
+            font-size: 13px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .social-btn:hover {
+            background: #ff8c00;
+            color: #000;
+            transform: translateY(-4px);
+            box-shadow: 0 10px 25px rgba(255, 140, 0, 0.4);
+        }
+
+        .email-section {
+            background: linear-gradient(135deg, #ff8c00 0%, #cc6b00 100%);
+            padding: 35px;
+            border-radius: 12px;
+            color: #000;
+            box-shadow: 0 10px 30px rgba(255, 140, 0, 0.4);
+        }
+
+        .email-label {
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            opacity: 0.8;
+            font-weight: 700;
+            margin-bottom: 10px;
+            display: block;
+        }
+
+        .email-link {
+            font-size: 20px;
+            font-weight: 900;
+            color: #000;
+            text-decoration: none;
+            word-break: break-all;
+            display: block;
+        }
+
+        .email-link:hover {
+            opacity: 0.8;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 40px 20px;
+            color: #666;
+            font-size: 12px;
+            border-top: 1px solid rgba(255, 140, 0, 0.2);
+            margin-top: 50px;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 40px;
+            }
+
+            .main-title {
+                font-size: 20px;
+            }
+
+            .header-hero {
+                padding: 50px 25px;
+            }
+
+            .section {
+                padding: 30px 20px;
+            }
+
+            .section-title {
+                font-size: 24px;
+            }
+
+            .about-content {
+                grid-template-columns: 1fr;
+                gap: 25px;
+            }
+
+            .portfolio-grid,
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .skills-grid,
+            .tools-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .social-btn {
+                padding: 11px 18px;
+                font-size: 12px;
+            }
+
+            .contact-section {
+                padding: 30px 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header Hero -->
+        <div class="header-hero">
+            <div class="header-content">
+                <div class="avatar-circle">AR</div>
+                <h1>Adrian Ruiz</h1>
+                <p class="main-title">Periodista Deportivo & Social Media</p>
+                <p class="tagline">Radio • Televisión • Prensa Digital | Especialista en ciclismo profesional</p>
+            </div>
+        </div>
+
+        <!-- About Section -->
+        <div class="section">
+            <h2 class="section-title">Sobre mí</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <p>
+                        Soy <strong>periodista deportivo y creador de contenido digital</strong> con experiencia en radio, televisión y prensa, pero mi mayor dedicación en los últimos años ha sido la <strong>gestión integral de redes sociales y Social Media</strong> a través de mis proyectos personales.
+                    </p>
+                    <p>
+                        En mis cuentas (@juegaelaguilas, @juegaelyeclano, @adrianruiztv) me encargo de <strong>todo el proceso creativo de forma autónoma</strong>: desde la idea hasta la publicación. Grabo los vídeos, los edito con CapCut y Filmora, realizo el doblaje y la locución, diseño las piezas gráficas con Canva y Photoshop, y gestiono la estrategia de publicación analizando métricas para optimizar el alcance e interacciones.
+                    </p>
+                    <p>
+                        Esta <strong>creación de contenido integral y 360°</strong> me ha permitido desarrollar una visión completa del Social Media: no solo publicar, sino <strong>construir comunidad, contar historias y generar impacto real</strong>. Todo ello combinado con mi formación periodística y mi vocación por el <strong>ciclismo profesional</strong>.
+                    </p>
+                </div>
+                <div class="about-highlights">
+                    <div class="highlight-item">🎬 Grabación y edición de vídeo (CapCut · Filmora)</div>
+                    <div class="highlight-item">🎙️ Doblaje, locución y guionización propia</div>
+                    <div class="highlight-item">🎨 Diseño gráfico (Canva · Photoshop)</div>
+                    <div class="highlight-item">📊 Gestión de redes y análisis de métricas</div>
+                    <div class="highlight-item">📻 Radio · TV · Prensa digital</div>
+                    <div class="highlight-item">🚴 Vocación: Ciclismo profesional</div>
+                </div>
+            </div>
+
+            <div class="cycling-section">
+                <h4>Vocación hacia el ciclismo profesional</h4>
+                <p class="cycling-text">
+                    Mi carrera periodística se ha centrado en el fútbol: he narrado partidos en radio, guionizado y producido programas de televisión, redactado análisis en prensa digital. Pero nada me haría más ilusión que volcar toda esa experiencia, vocación y mentalidad de contenidos en la gestión de redes sociales para el ciclismo profesional. Conozco el calendario de las grandes vueltas, sigo sus protagonistas, entiendo la dinámica de la temporada. Tengo la formación, el rigor periodístico y la pasión genuina para captar la esencia de este deporte y conectar con comunidades globales.
+                </p>
+            </div>
+        </div>
+
+        <!-- Experience Section -->
+        <div class="section">
+            <h2 class="section-title">Experiencia Profesional</h2>
+            <div class="experience-list">
+                <div class="experience-item">
+                    <div class="experience-title">📻 La Jungla Radio Yecla</div>
+                    <div class="experience-detail">Narrador de partidos de fútbol | Análisis en directo | Cobertura de clubes</div>
+                </div>
+                <div class="experience-item">
+                    <div class="experience-title">📺 Arabi TV</div>
+                    <div class="experience-detail">Productor, guionista y creador de programa propio | Cobertura audiovisual</div>
+                </div>
+                <div class="experience-item">
+                    <div class="experience-title">📰 Murciaeconomía</div>
+                    <div class="experience-detail">Redactor de información deportiva | Análisis y noticias de fútbol</div>
+                </div>
+                <div class="experience-item">
+                    <div class="experience-title">📱 Proyectos Freelance</div>
+                    <div class="experience-detail">Gestión integral: contenido, diseño visual, redes sociales, análisis de métricas</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Tools Section -->
+        <div class="section">
+            <h2 class="section-title">Herramientas & Programas</h2>
+            <div class="tools-grid">
+                <div class="tool-badge">Canva</div>
+                <div class="tool-badge">Photoshop</div>
+                <div class="tool-badge">CapCut</div>
+                <div class="tool-badge">Filmora</div>
+                <div class="tool-badge">Meta Business</div>
+                <div class="tool-badge">Analytics</div>
+            </div>
+        </div>
+
+        <!-- IA & Automation Section -->
+        <div class="section">
+            <h2 class="section-title">IA & Automatización</h2>
+            <p style="color: #b0b0b0; font-size: 15px; margin-bottom: 30px;">
+                Uso avanzado de herramientas de IA para optimizar procesos creativos, investigación de contenidos y automatización. Capaz de crear prompts efectivos para potenciar productividad y generar resultados de alto impacto.
+            </p>
+            <div class="experience-list">
+                <div class="experience-item">
+                    <div class="experience-title">🤖 Claude</div>
+                    <div class="experience-detail">Programación, redacción estratégica, automatización de procesos, análisis de datos. Ejemplo: Este portfolio fue creado íntegramente con prompts en Claude.</div>
+                </div>
+                <div class="experience-item">
+                    <div class="experience-title">🎨 ChatGPT</div>
+                    <div class="experience-detail">Generación de imágenes, recursos visuales, inspiración creativa, brainstorming de contenidos para redes sociales.</div>
+                </div>
+                <div class="experience-item">
+                    <div class="experience-title">🎬 Gemini</div>
+                    <div class="experience-detail">Apoyo en edición de vídeo, optimización de clips, análisis de contenido audiovisual, mejora de narrativa visual.</div>
+                </div>
+                <div class="experience-item">
+                    <div class="experience-title">⚡ Uso estratégico de prompts</div>
+                    <div class="experience-detail">Capacidad para estructurar prompts efectivos que optimizan resultados, automatiza tareas repetitivas y acelera procesos creativos.</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Portfolio Section -->
+        <div class="section">
+            <h2 class="section-title">Portfolio Visual</h2>
+            <p style="color: #b0b0b0; font-size: 15px; margin-bottom: 30px;">
+                Captando la esencia de Gobik, este estilo de diseño y línea de imagen sigue una línea acorde a lo dinámico y un naranja acorde a la vinculación con Ineos. Cada imagen representa mi enfoque en narrativa visual de alto impacto para el mundo deportivo.
+            </p>
+            <div class="portfolio-grid">
+                <div class="portfolio-item">
+                    <img src="https://i.ibb.co/5WVsRXFR/Chat-GPT-Image-7-may-2026-20-31-28-3.png" alt="WEAR - INEOS Grenadiers">
+                    <div class="portfolio-caption">WEAR · Diseño dinámico INEOS Grenadiers</div>
+                </div>
+                <div class="portfolio-item">
+                    <img src="https://i.ibb.co/YT8VHvhB/Chat-GPT-Image-7-may-2026-20-31-27-1.png" alt="GO - INEOS Grenadiers">
+                    <div class="portfolio-caption">GO · Narrativa visual ciclismo profesional</div>
+                </div>
+                <div class="portfolio-item">
+                    <img src="https://i.ibb.co/rfXC370h/Chat-GPT-Image-7-may-2026-20-31-28-2.png" alt="BIK - INEOS Grenadiers">
+                    <div class="portfolio-caption">BIK · Alto impacto editorial</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Metrics Section -->
+        <div class="section">
+            <h2 class="section-title">Análisis de Resultados</h2>
+            <div class="metrics-info">
+                <strong>Análisis de rendimiento de los 3 perfiles gestionados en los últimos 60 días.</strong> Datos comparados con el periodo anterior (7 ene. – 7 mar.). Los Reels son el formato que mejor rendimiento obtiene en los tres perfiles, generando más alcance, reproducciones e interacciones.
+            </div>
+            <!-- Infographic image -->
+            <div style="text-align:center; margin: 30px 0;">
+                <img src="https://i.ibb.co/35Dt2K55/analitica-de-metricas.png" 
+                     onerror="this.style.display='none'; document.getElementById('metrics-fallback').style.display='grid';"
+                     alt="Análisis de resultados - métricas de los 3 perfiles"
+                     style="max-width:100%; border-radius:12px; border:2px solid rgba(255,140,0,0.3); box-shadow:0 10px 30px rgba(0,0,0,0.5);">
+            </div>
+            <div id="metrics-fallback" class="projects-grid" style="display:none; margin-top:20px;">
+                <div class="project-card">
+                    <div class="project-name">@juegaelaguilas</div>
+                    <div class="project-desc">690,782 reproducciones · 15,161 interacciones · Actividad +90,2%</div>
+                </div>
+                <div class="project-card">
+                    <div class="project-name">@juegaelyeclano</div>
+                    <div class="project-desc">469,095 reproducciones · 445,533 interacciones · 29,243 cuentas alcanzadas</div>
+                </div>
+                <div class="project-card">
+                    <div class="project-name">@adrianruiztv</div>
+                    <div class="project-desc">445,533 reproducciones · 78,897 interacciones · Actividad +12,6%</div>
+                </div>
+            </div>
+            <div style="background:rgba(255,140,0,0.1); border:2px solid rgba(255,140,0,0.3); border-radius:10px; padding:20px; margin-top:20px; font-size:15px; color:#d0d0d0; line-height:1.8;">
+                📊 <strong style="color:#ff8c00;">Reels:</strong> formato líder en los 3 perfiles con +50% de las interacciones &nbsp;|&nbsp;
+                🎯 <strong style="color:#ff8c00;">Alcance:</strong> hasta 62% de no seguidores impactados &nbsp;|&nbsp;
+                📈 <strong style="color:#ff8c00;">Crecimiento:</strong> hasta +90,4% en visitas al perfil
+            </div>
+        </div>
+
+        <!-- Contact Section -->
+        <div class="contact-section">
+            <h3 class="contact-title">Conecta conmigo</h3>
+            <div class="social-buttons">
+                <a href="https://instagram.com/adrianruiztv" class="social-btn" target="_blank">
+                    Instagram Principal
+                </a>
+                <a href="https://instagram.com/juegaelaguilas" class="social-btn" target="_blank">
+                    Aguilas
+                </a>
+                <a href="https://instagram.com/juegaelyeclano" class="social-btn" target="_blank">
+                    Yeclano
+                </a>
+            </div>
+            <div class="email-section">
+                <span class="email-label">Contacto directo</span>
+                <a href="mailto:adrianruizprensa@gmail.com" class="email-link">
+                    adrianruizprensa@gmail.com
+                </a>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <footer>
+            <p>Adrian Ruiz | Periodista deportivo | Radio, TV, prensa | Especialista en gestión de redes sociales y ciclismo profesional</p>
+        </footer>
+    </div>
+</body>
+</html>
